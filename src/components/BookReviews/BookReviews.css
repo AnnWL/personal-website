@@ -1,0 +1,40 @@
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filters select {
+  padding: 0.5rem;
+  background: #111;
+  border: 1px solid #555;
+  color: white;
+}
+
+.book-cover {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.pagination {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.pagination button {
+  background: none;
+  border: 1px solid #cc00cc;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin: 0 0.3rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: #cc00cc;
+  color: black;
+  font-weight: bold;
+}

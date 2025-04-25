@@ -1,0 +1,24 @@
+:root {
+  --bg-black: #000000;
+  --text-white: #ffffff;
+  --accent-pink: #cc00cc;
+  --text-muted: #cccccc;
+  --font-base: Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  font-family: var(--font-base);
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--accent-pink);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

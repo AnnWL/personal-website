@@ -1,0 +1,60 @@
+.work-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+  color: var(--text-white);
+  font-family: var(--font-base);
+}
+
+.section-heading {
+  color: var(--accent-pink);
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.work-container section {
+  margin-bottom: 3rem;
+}
+
+.work-container h2 {
+  font-size: 1.4rem;
+  color: var(--accent-pink);
+  margin-bottom: 0.75rem;
+}
+
+.work-container h3 {
+  font-size: 1.2rem;
+  color: var(--accent-pink);
+  margin-top: 1.5rem;
+}
+
+.work-container p {
+  line-height: 1.6;
+  color: var(--text-white);
+}
+.card-section {
+  margin-top: 2rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background-color: #111;
+  color: var(--text-white);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(204, 0, 204, 0.1);
+  font-weight: 500;
+}
+
+/* Optional: hover effect */
+.card:hover {
+  box-shadow: 0 0 12px rgba(204, 0, 204, 0.3);
+}

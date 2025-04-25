@@ -1,0 +1,42 @@
+.homepage-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.homepage-section {
+  margin-bottom: 3rem;
+}
+
+.homepage-section h2 {
+  font-size: 1.4rem;
+  color: var(--accent-pink);
+  margin-bottom: 0.5rem;
+}
+
+.homepage-section p {
+  margin: 0.5rem 0 1rem;
+  color: var(--text-white);
+  line-height: 1.6;
+}
+
+.read-more {
+  text-decoration: none;
+  color: var(--accent-pink);
+  font-weight: 600;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .homepage-container {
+    padding: 1rem;
+  }
+
+  .homepage-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .read-more {
+    font-size: 0.95rem;
+  }
+}
