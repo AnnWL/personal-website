@@ -57,7 +57,7 @@ const NavBar = () => {
             Personal Reflections
           </NavLink>
         </li>
-
+        {/* 
         <li>
           <NavLink
             to="/book-search"
@@ -67,7 +67,7 @@ const NavBar = () => {
           >
             Book Search
           </NavLink>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

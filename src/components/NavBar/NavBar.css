@@ -1,37 +1,32 @@
 .navbar {
   width: 100%;
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 1.5rem 2rem;
   font-family: Arial, sans-serif;
   border-bottom: 1px solid #333;
   position: sticky;
   top: 0;
   z-index: 1000;
+
+  display: grid;
+  grid-template-columns: auto 1fr; /* logo | links */
+  align-items: center;
 }
 
 .logo {
-  float: left;
   font-weight: 900;
   font-size: 1.2rem;
-}
-
-.logo a {
-  text-decoration: none;
   color: white;
-  font-weight: 900;
 }
 
 .navbar-list {
-  float: right;
+  display: flex;
+  flex-wrap: wrap; /* ✅ ALLOW LINKS TO WRAP */
+  justify-content: flex-end;
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.navbar-list li {
-  display: inline-block;
-  margin-left: 2rem;
+  gap: 1.5rem; /* spacing between links */
 }
 
 .nav-link {
@@ -39,6 +34,7 @@
   color: white;
   font-weight: 500;
   font-size: 0.95rem;
+  white-space: nowrap; /* prevent weird internal word breaks */
 }
 
 .nav-link.active {
