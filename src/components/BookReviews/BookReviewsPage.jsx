@@ -4,7 +4,6 @@ import BookReviews from "./BookReviews";
 const BookReviewsPage = () => {
   const [filterTag, setFilterTag] = useState("");
   const [filterRating, setFilterRating] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
 
   return (
     <BookReviews
@@ -12,8 +11,6 @@ const BookReviewsPage = () => {
       setFilterTag={setFilterTag}
       filterRating={filterRating}
       setFilterRating={setFilterRating}
-      currentPage={currentPage}
-      setCurrentPage={setCurrentPage}
     />
   );
 };

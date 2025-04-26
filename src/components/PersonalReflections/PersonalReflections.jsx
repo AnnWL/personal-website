@@ -3,7 +3,9 @@ import React from "react";
 const PersonalReflections = () => {
   return (
     <div>
-      <h2>Personal Reflections</h2>
+      <br />
+      <br />
+      <h2> Pending ... </h2>
     </div>
   );
 };

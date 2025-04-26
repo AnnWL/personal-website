@@ -23,6 +23,9 @@ function App() {
         <Route path="/personal-reflections" element={<PersonalReflections />} />
         <Route path="*" element={<h2>Page Not Found!</h2>} />
       </Routes>
+      <footer className="site-footer">
+        <p>© 2025 Ann Wei Ling. All rights reserved.</p>
+      </footer>
     </>
   );
 }

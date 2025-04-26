@@ -4,6 +4,15 @@
   --accent-pink: #cc00cc;
   --text-muted: #cccccc;
   --font-base: Arial, sans-serif;
+  --font-size: 1.2rem;
+  --max-width: 1200px;
+}
+
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-base);
+  color: var(--text-white);
+  background-color: var(--bg-black);
 }
 
 body {
@@ -21,4 +30,12 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.site-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-white);
+  margin-top: 4rem;
+  padding-bottom: 2rem;
 }
