@@ -10,9 +10,6 @@ const BookReviews = ({
   setCurrentPage,
 }) => {
   const [reviews, setReviews] = useState([]);
-  const [filterTag, setFilterTag] = useState("");
-  const [filterRating, setFilterRating] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
   const perPage = 6;
 
   const fetchReviews = async () => {
