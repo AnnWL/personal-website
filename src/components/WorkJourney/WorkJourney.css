@@ -1,9 +1,78 @@
 .work-container {
-  max-width: 800px;
+  max-width: var(--max-width);
   margin: auto;
   padding: 2rem;
   color: var(--text-white);
   font-family: var(--font-base);
+}
+
+.journey-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 12px;
+}
+
+.nus-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  float: right;
+  margin: 0 0 1rem 1.5rem;
+}
+
+.journey-grid-left {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.journey-image-left {
+  width: 500px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.journey-grid-right {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  align-items: start;
+  margin: 2rem 0;
+}
+
+.journey-image-right {
+  width: 500px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.journey-grid-dsi {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.ga-dsi {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.journey-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .section-heading {
@@ -54,7 +123,15 @@
   font-weight: 500;
 }
 
-/* Optional: hover effect */
 .card:hover {
   box-shadow: 0 0 12px rgba(204, 0, 204, 0.3);
 }
+/* 
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--accent-pink);
+  margin: 4rem 0;
+  width: 80%;
+  opacity: 0.5;
+  align-self: center;
+} */

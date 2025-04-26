@@ -1,5 +1,11 @@
 import React from "react";
 import "./WorkJourney.css";
+import TypingText from "./TypingText";
+
+import nusPic from "../../assets/NUS.png";
+import neaPic from "../../assets/japan.png";
+import edPic from "../../assets/gastech.png";
+import gaPic from "../../assets/dsi2.png";
 
 const WorkJourney = () => {
   return (
@@ -7,7 +13,13 @@ const WorkJourney = () => {
       <h1 className="section-heading">Work Journey</h1>
 
       <section>
-        <h2>NUS Statistics (2006–2011)</h2>
+        <TypingText
+          text="NUS Statistics (2006–2011)"
+          speed={50}
+          tag="h2"
+          className="section-heading"
+        />
+        {/* <img src={nusPic} alt="NUS Statistics" className="nus-logo" /> */}
         <p>
           I’ve always found comfort in numbers. There was something satisfying
           about how clear-cut it all was — as long as I put in the work to
@@ -19,40 +31,62 @@ const WorkJourney = () => {
           ultimately led me to pursue a career in the public sector.
         </p>
       </section>
+      {/* <hr className="section-divider" /> */}
 
       <section>
-        <h2>
-          Ministry of Trade and Industry — North East Asia Division (2011–2015)
-        </h2>
-        <p>
-          I started off working on the Suzhou Industrial Park portfolio before
-          moving on to help launch Singapore’s 3rd Government to Government
-          Collaboration with China - the Chongqing Connectivity Initiative (CCI)
-          project in 2013. Those years were intense — I still joke with
-          ex-colleagues that I could never go back to the way we worked back
-          then. Endless staffing, red-eye flights, and a particularly
-          unforgettable meeting at China’s Ministry of Commerce (MOFCOM) that
-          ran until 5am the next day.
-          <br />
-          Despite the long hours, the work was fulfilling and exciting — I got
-          to witness the early stages of a key project from concept to launch,
-          and had the privilege of being at the forefront of several high-level
-          meetings. I still remember the moment our leaders signed the MOU to
-          officially launch the CCI during Xi’s State Visit to Singapore in Nov
-          2014 — it felt like everything we’d poured into the project had come
-          full circle. That said, I was also feeling a tad consumed with work by
-          then, and decided it was time for a break.
-        </p>
+        <TypingText
+          text="Ministry of Trade and Industry — North East Asia Division (2011–2015)"
+          speed={50}
+          tag="h2"
+          className="section-heading"
+        />
+        <div className="journey-grid-left">
+          <img
+            src={neaPic}
+            alt="A worktrip to Japan"
+            className="journey-image-left"
+          />
+          <div className="journey-text">
+            <p>
+              I started off working on the Suzhou Industrial Park portfolio
+              before moving on to help launch Singapore’s 3rd Government to
+              Government Collaboration with China - the Chongqing Connectivity
+              Initiative (CCI) project in 2013. Those years were intense — I
+              still joke with ex-colleagues that I could never go back to the
+              way we worked back then. Endless staffing, red-eye flights, and a
+              particularly unforgettable meeting at China’s Ministry of Commerce
+              (MOFCOM) that ran until 5am the next day.
+              <br />
+              <br />
+              Despite the long hours, the work was fulfilling and exciting — I
+              got to witness the early stages of a key project from concept to
+              launch, and had the privilege of being at the forefront of several
+              high-level meetings. I still remember the moment our leaders
+              signed the MOU to officially launch the CCI during Xi’s State
+              Visit to Singapore in Nov 2014 — it felt like everything we’d
+              poured into the project had come full circle. That said, I was
+              also feeling a tad consumed with work by then, and decided it was
+              time for a break.
+            </p>
+          </div>
+        </div>
       </section>
+      {/* <hr className="section-divider" /> */}
 
       <section>
-        <h2>At the Five-Year Mark: Sabbatical (2H 2015)</h2>
+        <TypingText
+          text="At the Five-Year Mark: Sabbatical (2H 2015)"
+          speed={50}
+          tag="h2"
+          className="section-heading"
+        />
         <p>
           At the end of the fifth year into the corporate world, I found myself
           asking: What is God’s calling for me? Am I truly living it out? I took
           my first sabbatical — a month in the U.S. with my aunt, a three-month
           ministry programme at Tung Ling Bible School, and a month in France
           visiting a friend.
+          <br />
           <br />
           During that time, I reflected on God’s calling. Through the programme
           and books I read, I was reminded that our primary calling as
@@ -62,39 +96,75 @@ const WorkJourney = () => {
           meaningful, but I now know it can’t be the be-all and end-all.
         </p>
       </section>
+      {/* <hr className="section-divider" /> */}
 
       <section>
-        <h2>MTI Energy Division (2016–2019)</h2>
-        <p>
-          The numbers itch never quite went away, so I chose a posting in the
-          Energy Division, hoping to take on more quantitative work. My main
-          responsibilities included projecting Singapore’s energy demand and
-          working on energy infrastructure financing — think LNG terminals and
-          long-term supply planning.
-          <br />
-          Work-life balance was a lot better in ED (we were, after all, voted
-          the happiest division in MTI in a HR survey one year 😛). Still, I
-          found myself craving deeper quantitative work and wanted to sharpen my
-          skills. So I took the plunge and enrolled in a full-time data science
-          bootcamp to make a proper shift into a data-driven role.
-        </p>
-        <br />
-        <p>Met my future husband here!</p>
+        <TypingText
+          text="MTI Energy Division (2016–2019)"
+          speed={50}
+          tag="h2"
+          className="section-heading"
+        />
+        <div className="journey-grid-right">
+          <div className="journey-text">
+            <p>
+              The numbers itch never quite went away, so I chose a posting in
+              the Energy Division, hoping to take on more quantitative work. My
+              main responsibilities included projecting Singapore’s energy
+              demand and working on energy infrastructure financing — think LNG
+              terminals and long-term supply planning.
+              <br />
+              <br />
+              Work-life balance was a lot better in ED (we were, after all,
+              voted the happiest division in MTI in a HR survey one year 😛).
+              Still, I found myself craving deeper quantitative work and wanted
+              to sharpen my skills. So I took the plunge and enrolled in a
+              full-time data science bootcamp to make a proper shift into a
+              data-driven role.
+            </p>
+          </div>
+          <img
+            src={edPic}
+            alt="2018 GasTech Conference in Spain"
+            className="journey-image-right"
+          />
+        </div>
       </section>
+      {/* <hr className="section-divider" /> */}
 
       <section>
-        <h2>General Assembly – Data Science Immersive Bootcamp (2H 2019)</h2>
-        <p>
-          I enjoyed the pace and structure of learning again, though it came
-          with its share of self-doubt — especially stepping into a new field in
-          my early 30s. It was a season of intense hustle, shared with
-          like-minded classmates equally determined to make the leap into data
-          science.
-        </p>
+        <TypingText
+          text="General Assembly – Data Science Immersive Bootcamp (2H 2019)"
+          speed={50}
+          tag="h2"
+          className="section-heading"
+        />
+        <div className="journey-grid-dsi">
+          <img
+            src={gaPic}
+            alt="Capstone Presentation Day for GA DSI"
+            className="ga-dsi"
+          />
+          <div className="journey-text">
+            <p>
+              I enjoyed the pace and structure of learning again, though it came
+              with its share of self-doubt — especially stepping into a new
+              field in my early 30s. It was a season of intense hustle, shared
+              with like-minded classmates equally determined to make the leap
+              into data science.
+            </p>
+          </div>
+        </div>
       </section>
+      {/* <hr className="section-divider" /> */}
 
       <section>
-        <h2>GovTech – Data Science & AI Division (2020–2025)</h2>
+        <TypingText
+          text="GovTech – Data Science & AI Division (2020–2025)"
+          speed={50}
+          tag="h2"
+          className="section-heading"
+        />
         <p>
           Found myself wearing multiple hats, working across different domains
           including data science and AI, data management and sales person. My
@@ -102,19 +172,27 @@ const WorkJourney = () => {
           impact, especially when navigating stakeholder needs and defining
           success metrics.
           <br />
+          <br />
           Key areas included data governance, agile delivery (Scrum), and early
           adoption of large language models (LLMs). Across projects, the
           consistent focus was on delivering meaningful, measurable outcomes.
         </p>
       </section>
+      {/* <hr className="section-divider" /> */}
 
       <section>
-        <h2>GA Software Engineering Immersive (1H 2025)</h2>
+        <TypingText
+          text="GA Software Engineering Immersive (1H 2025)"
+          speed={50}
+          tag="h2"
+          className="section-heading"
+        />
         <p>
           I decided to take up software engineering to round out my skill set —
           and I’m thankful for supportive bosses. I’m currently midway through
           the course and loving it. Our first project was a game, and it was
           wicked fun.
+          <br />
           <br />
           Compared to data science, software engineering feels more immediate —
           you can start building right away, without the initial overhead of
@@ -122,6 +200,7 @@ const WorkJourney = () => {
           Who knows — maybe one day I’ll build my own indie Pokémon game. 😛
         </p>
       </section>
+      {/* <hr className="section-divider" /> */}
 
       <section className="card-section">
         <h3>Skills</h3>
@@ -148,7 +227,7 @@ const WorkJourney = () => {
         <h3>Projects</h3>
         <div className="card-grid">
           <div className="card">DebbyGotcha!</div>
-          {/* Add more projects here if needed */}
+          {/* Add more projects here */}
         </div>
       </section>
     </div>
