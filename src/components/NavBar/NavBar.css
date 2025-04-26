@@ -1,15 +1,17 @@
 .navbar {
   width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 1.5rem 2rem;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-base);
   border-bottom: 1px solid #333;
   position: sticky;
   top: 0;
   z-index: 1000;
 
   display: grid;
-  grid-template-columns: auto 1fr; /* logo | links */
+  grid-template-columns: auto 1fr;
   align-items: center;
 }
 
@@ -21,12 +23,12 @@
 
 .navbar-list {
   display: flex;
-  flex-wrap: wrap; /* ✅ ALLOW LINKS TO WRAP */
+  flex-wrap: wrap;
   justify-content: flex-end;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 1.5rem; /* spacing between links */
+  gap: 1.5rem;
 }
 
 .nav-link {
@@ -34,7 +36,7 @@
   color: white;
   font-weight: 500;
   font-size: 0.95rem;
-  white-space: nowrap; /* prevent weird internal word breaks */
+  white-space: nowrap;
 }
 
 .nav-link.active {
