@@ -47,7 +47,7 @@ const NavBar = () => {
             Work Journey
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink
             to="/personal-reflections"
             className={({ isActive }) =>
@@ -56,7 +56,7 @@ const NavBar = () => {
           >
             Personal Reflections
           </NavLink>
-        </li>
+        </li> */}
         {/* 
         <li>
           <NavLink

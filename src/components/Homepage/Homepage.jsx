@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Homepage.css";
 import { motion } from "framer-motion";
-import profilePic from "../../assets/headshot.png";
+import profilePic from "../../assets/profilepic.jpg";
 
 const sections = [
   {
@@ -18,13 +18,13 @@ const sections = [
     This space is where I jot down thoughts on books that moved me, gave me those aha moments, or simply kept me company for a while. 
     Not all reviews are deep dives — some are just notes to self, but they help me remember what I took away from each read.`,
   },
-  {
-    title: "Personal Reflections",
-    to: "/personal-reflections",
-    text: ` I believe our character is shaped not just by what we go through, but by how we respond to those experiences. 
-    This space is where I pause, reflect, and write down what I’m learning — in the moment. 
-    It’s my way of making sense of the journey, and of tracking how I grow and change over the years.`,
-  },
+  // {
+  //   title: "Personal Reflections",
+  //   to: "/personal-reflections",
+  //   text: ` I believe our character is shaped not just by what we go through, but by how we respond to those experiences.
+  //   This space is where I pause, reflect, and write down what I’m learning — in the moment.
+  //   It’s my way of making sense of the journey, and of tracking how I grow and change over the years.`,
+  // },
   {
     title: "Work Journey",
     to: "/work-journey",

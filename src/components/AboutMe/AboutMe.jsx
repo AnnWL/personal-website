@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./AboutMe.css";
-import profilePic from "../../assets/headshot.png";
+import profilePic from "../../assets/profilepic.jpg";
 
 const AboutMe = () => {
   const descriptors = [
@@ -44,7 +44,7 @@ const AboutMe = () => {
           space to document some of my thoughts and reflections during this
           sabbatical — otherwise, I know how easily time can slip away.
           <br />
-          <a href="/personal-reflections">Read my personal reflections</a>
+          {/* <a href="/personal-reflections">Read my personal reflections</a> */}
         </p>
         <p>
           Outside of classes and medical appointments, I’ve been leaning into

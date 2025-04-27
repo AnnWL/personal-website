@@ -5,8 +5,8 @@
 }
 
 .profile-pic-homepage {
-  width: 120px;
-  height: 120px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
   border-radius: 50%;
   float: right;
