@@ -244,8 +244,16 @@ const WorkJourney = () => {
         </div>
         <h3>Projects</h3>
         <div className="card-grid">
-          <div className="card">DebbyGotcha!</div>
-          {/* Add more projects here */}
+          <div className="project-card">
+            <h3>DebbyGotcha!</h3>
+            <p>
+              DebbyGotcha! is a web app that turns task management into a game,
+              featuring a Tamagotchi-inspired virtual friend, Debbie. Complete
+              tasks to earn points and interact with Debbie, discovering her
+              unique quirks along the way.
+            </p>
+            <a href="https://github.com/AnnWL/DebbyGotcha">GitHub</a>
+          </div>
         </div>
       </section>
     </div>

@@ -46,6 +46,11 @@ h2 {
   font-weight: bold;
 }
 
+h3 {
+  color: var(--text-white);
+  font-weight: bold;
+}
+
 .section-title {
   text-align: left;
   margin-bottom: 2rem;

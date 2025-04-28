@@ -145,3 +145,23 @@
   box-shadow: 0 0 8px rgba(204, 0, 204, 0.1);
   font-weight: 500;
 }
+
+.project-card {
+  background-color: #474444;
+  color: var(--text-white);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(204, 0, 204, 0.1);
+  font-weight: 500;
+  max-width: 500px;
+  width: 100%;
+}
+
+.project-card h3 {
+  color: var(--text-white);
+}
+
+.project-card a {
+  color: lightblue;
+}
