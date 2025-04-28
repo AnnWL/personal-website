@@ -20,7 +20,7 @@ function App() {
         <Route path="/book-reviews" element={<BookReviewsPage />} />
         <Route path="/work-journey" element={<WorkJourney />} />
         {/* <Route path="/book-search" element={<BookSearch />} /> */}
-        <Route path="/personal-reflections" element={<PersonalReflections />} />
+        {/* <Route path="/personal-reflections" element={<PersonalReflections />} /> */}
         <Route path="*" element={<h2>Page Not Found!</h2>} />
       </Routes>
       <footer className="site-footer">

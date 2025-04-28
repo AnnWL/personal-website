@@ -27,6 +27,30 @@ This is a React-based portfolio site where I share reflections, book reviews, an
 
 - **Other tools**:
   - Airtable API (for managing book review content)
+  - GoogleBooks API for data
+
+## Project Hierarchy
+
+src/
+├── assets/
+│ └── pictures
+│
+├── components/
+│ ├── NavBar/
+│ ├── HomePage/
+│ ├── AboutMe/
+│ ├── BookReviews/
+│ │ ├── BookReviewPage
+│ │ ├── BookReviews
+│ │ ├── ReviewCard
+│ │ ├── PaginationControls
+│ │ └── Filters
+│ ├── BookSearch/
+│ └── WorkJourney/
+│
+├── App.jsx
+├── main.jsx
+└── index.css
 
 ## Getting Started
 
@@ -73,11 +97,11 @@ This section to be updated.
 
 - Add a mobile-responsive navigation menu (e.g., hamburger menu on small screens)
 
-- Animate page transitions more richly using Framer Motion
-
-- Add more projects under Work Journey
+- Add more projects and details under Work Journey
 
 - Build a small blog or journal section for new reflections
+
+- Create day and night modes
 
 ## License
 

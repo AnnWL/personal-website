@@ -60,8 +60,7 @@ const BookSearch = () => {
       }
     );
 
-    const data = await response.json(); // 👈 process the Airtable response
-    console.log("Airtable response:", data); // 👈 view the result in your browser console
+    const data = await response.json();
 
     if (response.ok) {
       alert("Saved to Airtable!");
