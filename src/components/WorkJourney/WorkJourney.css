@@ -33,7 +33,7 @@
 }
 
 .journey-image-left {
-  width: 500px;
+  width: 100%;
   height: auto;
   border-radius: 12px;
   object-fit: cover;
@@ -43,12 +43,12 @@
   display: grid;
   grid-template-columns: 1fr 300px;
   gap: 2rem;
-  align-items: start;
+  align-items: center;
   margin: 2rem 0;
 }
 
 .journey-image-right {
-  width: 500px;
+  width: 100%;
   height: auto;
   border-radius: 12px;
   object-fit: cover;
@@ -56,7 +56,7 @@
 
 .journey-grid-dsi {
   display: grid;
-  grid-template-columns: 500px 1fr;
+  grid-template-columns: 300px 1fr;
   gap: 2rem;
   align-items: center;
   margin: 2rem 0;
@@ -114,7 +114,6 @@
 }
 
 .card {
-  background-color: #111;
   color: var(--text-white);
   padding: 1rem;
   border-radius: 12px;
@@ -136,7 +135,7 @@
   align-self: center;
 } */
 
-.card {
+.skill-card {
   background-color: #474444;
   color: var(--text-white);
   padding: 1rem;

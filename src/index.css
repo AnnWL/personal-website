@@ -23,6 +23,11 @@ body {
   padding: 0;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 a {
   color: var(--accent-pink);
   text-decoration: none;
@@ -43,11 +48,6 @@ a:hover {
 h1,
 h2 {
   margin: 0 0 1rem 0;
-  font-weight: bold;
-}
-
-h3 {
-  color: var(--text-white);
   font-weight: bold;
 }
 

@@ -1,5 +1,7 @@
 # Personal Website — Ann Wei Ling
 
+![screenshot of the Personal Website](./src/assets/Screenshot.png)
+
 ## App Name and Description
 
 This is a React-based portfolio site where I share reflections, book reviews, and my career journey. I wanted a lightweight platform where I could document my learning journey, favorite reads, and thoughts — while also practicing front-end skills such as React, responsive design, and simple API integrations.
