@@ -33,26 +33,7 @@ This is a React-based portfolio site where I share reflections, book reviews, an
 
 ## Project Hierarchy
 
-src/
-├── assets/
-│ └── pictures
-│
-├── components/
-│ ├── NavBar/
-│ ├── HomePage/
-│ ├── AboutMe/
-│ ├── BookReviews/
-│ │ ├── BookReviewPage
-│ │ ├── BookReviews
-│ │ ├── ReviewCard
-│ │ ├── PaginationControls
-│ │ └── Filters
-│ ├── BookSearch/
-│ └── WorkJourney/
-│
-├── App.jsx
-├── main.jsx
-└── index.css
+![Project Structure](./src/assets/project_structure.png)
 
 ## Getting Started
 
