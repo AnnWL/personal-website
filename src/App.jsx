@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Homepage from "./components/Homepage/Homepage";
 import AboutMe from "./components/AboutMe/AboutMe";
 import WorkJourney from "./components/WorkJourney/WorkJourney";
-import BookReviewsPage from "./components/BookReviews/BookReviewsPage";
+import BookReviews from "./components/BookReviews/BookReviews";
 import PersonalReflections from "./components/PersonalReflections/PersonalReflections";
 import BookSearch from "./components/BookSearch/BookSearch";
 
@@ -17,9 +17,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about-me" element={<AboutMe />} />
-        <Route path="/book-reviews" element={<BookReviewsPage />} />
+        <Route path="/book-reviews" element={<BookReviews />} />
         <Route path="/work-journey" element={<WorkJourney />} />
-        {/* <Route path="/book-search" element={<BookSearch />} /> */}
+        <Route path="/book-search" element={<BookSearch />} />
         {/* <Route path="/personal-reflections" element={<PersonalReflections />} /> */}
         <Route path="*" element={<h2>Page Not Found!</h2>} />
       </Routes>

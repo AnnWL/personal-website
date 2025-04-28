@@ -135,3 +135,13 @@
   opacity: 0.5;
   align-self: center;
 } */
+
+.card {
+  background-color: #474444;
+  color: var(--text-white);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(204, 0, 204, 0.1);
+  font-weight: 500;
+}

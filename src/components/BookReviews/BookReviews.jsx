@@ -10,12 +10,9 @@ const AIRTABLE_TOKEN = import.meta.env.VITE_AIRTABLE_TOKEN;
 
 const REVIEWS_PER_PAGE = 4;
 
-const BookReviews = ({
-  filterTag,
-  setFilterTag,
-  filterRating,
-  setFilterRating,
-}) => {
+const BookReviews = () => {
+  const [filterTag, setFilterTag] = useState("");
+  const [filterRating, setFilterRating] = useState("");
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [fetched, setFetched] = useState(false);

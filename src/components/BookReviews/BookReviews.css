@@ -87,3 +87,8 @@
   background-color: var(--accent-pink);
   color: var(--bg-black);
 }
+
+.pagination-info {
+  margin-left: 10px;
+  margin-right: 10px;
+}

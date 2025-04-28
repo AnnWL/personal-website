@@ -7,6 +7,18 @@ import neaPic from "../../assets/japan.png";
 import edPic from "../../assets/gastech.png";
 import gaPic from "../../assets/dsi2.png";
 
+import awslogo from "../../assets/awslogo.png";
+import dockerlogo from "../../assets/dockerlogo.png";
+import reactlogo from "../../assets/reactlogo.png";
+import csslogo from "../../assets/csslogo.png";
+import scrumlogo from "../../assets/scrum.png";
+import mongologo from "../../assets/mongologo.svg";
+import tableaulogo from "../../assets/tableau.png";
+import figmalogo from "../../assets/figmalogo.svg";
+import pythonlogo from "../../assets/pythonlogo.png";
+import javascriptlogo from "../../assets/javascriptlogo.png";
+import htmllogo from "../../assets/html5logo.png";
+
 const WorkJourney = () => {
   return (
     <div className="work-container">
@@ -206,24 +218,30 @@ const WorkJourney = () => {
         <h3>Skills</h3>
         <div className="card-grid">
           {[
-            "Python",
-            "AWS",
-            "JavaScript",
-            "HTML",
-            "CSS",
-            "React",
-            "Scrum",
-            "MongoDB",
-            "Figma",
-            "Tableau",
-            "Docker",
-          ].map((skill) => (
+            { skill: "Python", icon: pythonlogo },
+            { skill: "AWS", icon: awslogo },
+            { skill: "JavaScript", icon: javascriptlogo },
+            { skill: "HTML", icon: htmllogo },
+            { skill: "CSS", icon: csslogo },
+            { skill: "React", icon: reactlogo },
+            { skill: "Scrum", icon: scrumlogo },
+            { skill: "MongoDB", icon: mongologo },
+            { skill: "Figma", icon: figmalogo },
+            { skill: "Tableau", icon: tableaulogo },
+            { skill: "Docker", icon: dockerlogo },
+          ].map(({ skill, icon }) => (
             <div className="card" key={skill}>
-              {skill}
+              <img
+                src={icon}
+                alt={`${skill} logo`}
+                width="50"
+                height="50"
+                className="logo"
+              />
+              <div>{skill}</div>
             </div>
           ))}
         </div>
-
         <h3>Projects</h3>
         <div className="card-grid">
           <div className="card">DebbyGotcha!</div>
