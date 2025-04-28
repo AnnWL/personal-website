@@ -230,7 +230,7 @@ const WorkJourney = () => {
             { skill: "Tableau", icon: tableaulogo },
             { skill: "Docker", icon: dockerlogo },
           ].map(({ skill, icon }) => (
-            <div className="card" key={skill}>
+            <div className="skill-card" key={skill}>
               <img
                 src={icon}
                 alt={`${skill} logo`}
