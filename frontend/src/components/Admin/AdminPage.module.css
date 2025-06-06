@@ -1,0 +1,42 @@
+.adminPanel {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  font-family: var(--font-base, "Segoe UI", sans-serif);
+  color: #000;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+h2,
+h3 {
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+button {
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #cc00cc;
+  color: #fff;
+}
+
+button:hover {
+  background-color: #a300a3;
+}
+
+input {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  color: #000;
+}

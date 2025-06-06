@@ -1,0 +1,11 @@
+{
+  "typeCheckingMode": "basic",
+  "reportInvalidTypeVarUse": false,
+  "reportGeneralTypeIssues": false,
+  "reportOptionalMemberAccess": false,
+  "reportOptionalSubscript": false,
+  "reportOptionalCall": false,
+  "exclude": ["**/__pycache__", "**/migrations", "**/env", "**/venv"],
+  "extraPaths": ["./backend"],
+  "pythonVersion": "3.11"
+}

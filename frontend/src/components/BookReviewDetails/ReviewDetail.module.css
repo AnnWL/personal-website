@@ -1,0 +1,103 @@
+.reviewDetailContainer {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.backButton {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.backButton:hover {
+  text-decoration: underline;
+}
+
+.author {
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.rating {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.coverImage {
+  width: 100%;
+  max-width: 300px;
+  margin: 1rem 0;
+  border-radius: 6px;
+  display: block;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.fullReviewText {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.votesSection {
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.votesSection button {
+  margin-right: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.votesSection button:hover {
+  background-color: #e0e0e0;
+}
+
+.commentsSection {
+  margin-top: 2rem;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.commentsSection h3 {
+  margin-bottom: 0.5rem;
+}
+
+.commentsSection textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+.commentsSection button {
+  padding: 0.5rem 1rem;
+  background-color: #ccc;
+  border: none;
+  border-radius: 6px;
+  cursor: not-allowed;
+}
+
+.commentsSection ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
