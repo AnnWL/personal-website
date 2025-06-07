@@ -2,6 +2,12 @@ from app.db.connection import get_connection
 import psycopg2.extras
 from psycopg2.extras import RealDictCursor
 
+def get_all_users():
+    with get_connection() as conn:
+        with conn.cursor(cursor_factory=RealDictCursor) as cur:
+            cur.execute("SELECT id, username, email, role FROM users;")
+            return cur.fetchall()
+        
 def get_user_by_username(username):
     with get_connection() as conn:
         with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:

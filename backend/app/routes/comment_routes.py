@@ -7,7 +7,8 @@ from app.crud.comment_crud import (
     get_comments_for_book,
     create_comment,
     update_comment,
-    delete_comment
+    delete_comment,
+    get_all_comments
 )
 
 comment_bp = Blueprint('comment', __name__, url_prefix='/api/books/<int:book_id>/comments')
@@ -55,5 +56,14 @@ def remove_comment(book_id,comment_id):
         if rows == 0:
             return jsonify({"err": "Comment not found"}), 404
         return jsonify({"deleted": rows}), 200
+    except Exception as e:
+        return jsonify({"err": str(e)}), 500
+
+@comment_bp.route("", methods=["GET"])
+@token_required
+def list_all_comments():
+    try:
+        comments = get_all_comments()
+        return jsonify(comments), 200
     except Exception as e:
         return jsonify({"err": str(e)}), 500

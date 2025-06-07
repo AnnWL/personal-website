@@ -11,6 +11,13 @@ def get_comments_for_book(book_id):
             cur.execute("SELECT * FROM comments WHERE book_id = %s;", (book_id,))
             return cur.fetchall()
 
+def get_all_comments():
+    with get_connection() as conn:
+        with conn.cursor(cursor_factory=RealDictCursor) as cur:
+            cur.execute("SELECT * FROM comments ORDER BY created_at DESC;")
+            return cur.fetchall()
+
+
 def create_comment(user_id, book_id, content):
     with get_connection() as conn:
         with conn.cursor() as cur:

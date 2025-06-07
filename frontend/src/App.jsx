@@ -10,7 +10,7 @@ import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import ReviewDetail from "./components/BookReviewDetails/BookReviewDetails";
 import AdminPanel from "./components/Admin/AdminPage";
-import BookSearch from "./components/BookSearch/BookSearch";
+import BookEditor from "./components/BookEditor/BookEditor";
 // import PersonalReflections from "./components/PersonalReflections/PersonalReflections";
 
 function App() {
@@ -20,12 +20,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about-me" element={<AboutMe />} />
-        <Route path="/book-reviews" element={<BookReviewsMeta />} />
         <Route path="/work-journey" element={<WorkJourney />} />
-        <Route path="/book-search" element={<BookSearch />} />
         {/* <Route path="/personal-reflections" element={<PersonalReflections />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/book-reviews" element={<BookReviewsMeta />} />
+        <Route path="/book-editor" element={<BookEditor />} />
         <Route path="/book-reviews/:id" element={<ReviewDetail />} />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="*" element={<h2>Page Not Found!</h2>} />

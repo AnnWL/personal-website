@@ -1,4 +1,5 @@
 from psycopg2 import sql
+from psycopg2.extras import RealDictCursor
 from app.db.connection import get_connection
 
 # As the Owner, I want to create, edit and delete specific book reviews. I also want to get book review with analytics
@@ -31,7 +32,7 @@ def list_public_book_reviews(limit=20, offset=0):
     with get_connection() as conn:
         with conn.cursor() as cur:
             cur.execute("""
-                SELECT id, title, author, cover_image_url, rating, created_at
+                SELECT id, title, author, cover_image_url, rating, review, created_at
                 FROM books
                 ORDER BY created_at DESC
                 LIMIT %s OFFSET %s;
@@ -44,10 +45,12 @@ def list_public_book_reviews(limit=20, offset=0):
                     "author": row[2],
                     "cover_image_url": row[3],
                     "rating": row[4],
-                    "created_at": row[5]
+                    "review": row[5],
+                    "created_at": row[6]
                 }
                 for row in rows
             ]
+
 
 def create_book_review(title, author, isbn, cover_image_url, review, rating, is_pinned=False):
     with get_connection() as conn:
@@ -62,10 +65,18 @@ def create_book_review(title, author, isbn, cover_image_url, review, rating, is_
 def update_book_review(book_id, updated_fields):
     with get_connection() as conn:
         with conn.cursor() as cur:
-            keys = updated_fields.keys()
-            values = list(updated_fields.values()) + [book_id]
-            query = sql.SQL("UPDATE books SET " + ", ".join(f"{k} = %s" for k in keys) + " WHERE id = %s")
-            cur.execute(query, values)
+            keys = list(updated_fields.keys())
+            values = list(updated_fields.values())
+
+            set_clause = sql.SQL(", ").join(
+                sql.Composed([sql.Identifier(k), sql.SQL(" = %s")]) for k in keys
+            )
+
+            query = sql.SQL("UPDATE books SET {fields} WHERE id = %s").format(
+                fields=set_clause
+            )
+
+            cur.execute(query, values + [book_id])
             return cur.rowcount
 
 def delete_book_review(book_id):
@@ -73,68 +84,9 @@ def delete_book_review(book_id):
         with conn.cursor() as cur:
             cur.execute("DELETE FROM books WHERE id = %s", (book_id,))
             return cur.rowcount
-
-# def get_book_review_with_analytics(book_id):
+        
+def get_book_by_isbn_from_db(isbn):
     with get_connection() as conn:
-        with conn.cursor() as cur:
-            # Get main review details
-            cur.execute("""
-                SELECT id, title, author, isbn, cover_image_url, review, user_id, rating, is_pinned, created_at
-                FROM books
-                WHERE id = %s;
-            """, (book_id,))
-            review = cur.fetchone()
-
-            if not review:
-                return None
-
-            review_data = {
-                "id": review[0],
-                "title": review[1],
-                "author": review[2],
-                "isbn": review[3],
-                "cover_image_url": review[4],
-                "review": review[5],
-                "user_id": review[6],
-                "rating": review[7],
-                "is_pinned": review[8],
-                "created_at": review[9],
-            }
-
-            # Get vote counts
-            cur.execute("""
-                SELECT 
-                    SUM(CASE WHEN vote_type = 'up' THEN 1 ELSE 0 END) AS upvotes,
-                    SUM(CASE WHEN vote_type = 'down' THEN 1 ELSE 0 END) AS downvotes
-                FROM review_votes
-                WHERE book_id = %s;
-            """, (book_id,))
-            votes = cur.fetchone()
-            review_data["upvotes"] = votes[0] or 0
-            review_data["downvotes"] = votes[1] or 0
-
-            # Get comment count
-            cur.execute("""
-                SELECT COUNT(*) FROM comments WHERE book_id = %s;
-            """, (book_id,))
-            comment_count = cur.fetchone()[0]
-            review_data["comment_count"] = comment_count
-
-            # Optional: include recent comments
-            cur.execute("""
-                SELECT user_id, content, created_at
-                FROM comments
-                WHERE book_id = %s
-                ORDER BY created_at DESC
-                LIMIT 5;
-            """, (book_id,))
-            comments = cur.fetchall()
-            review_data["recent_comments"] = [
-                {
-                    "user_id": c[0],
-                    "content": c[1],
-                    "created_at": c[2]
-                } for c in comments
-            ]
-
-            return review_data
+        with conn.cursor(cursor_factory=RealDictCursor) as cur:
+            cur.execute("SELECT * FROM books WHERE isbn = %s;", (isbn,))
+            return cur.fetchone()

@@ -11,7 +11,7 @@ from app.crud.auth_crud import (
     create_user,
     update_user_role,
     get_user_comments,
-    get_user_bookmarks
+    get_user_bookmarks, get_all_users
 )
 from app.middleware.auth_middleware import token_required
 
@@ -79,6 +79,15 @@ def promote_demote_user(user_id):
 # @token_required
 # def logout():
 #     return jsonify({"msg": "Logout successful. Please delete your token on the client."}), 200
+
+@auth_bp.route('/users', methods=['GET'])
+@token_required
+def get_all_users_route():
+    try:
+        users = get_all_users()
+        return jsonify(users), 200
+    except Exception as e:
+        return jsonify({"err": str(e)}), 500
 
 @auth_bp.route('/me', methods=['GET'])
 @token_required

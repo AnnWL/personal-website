@@ -8,7 +8,7 @@ from app.crud.book_crud import (
     create_book_review,
     update_book_review,
     delete_book_review,
-    # get_book_review_with_analytics
+    get_book_by_isbn_from_db
 )
 
 book_bp = Blueprint('book', __name__, url_prefix='/api/books')
@@ -98,3 +98,11 @@ def vote_on_book_review(book_id):
         return jsonify({"msg": "Vote recorded"}), 200
     except Exception as e:
         return jsonify({"err": str(e)}), 500
+
+@book_bp.route('/isbn/<string:isbn>', methods=['GET'])
+@token_required
+def get_book_by_isbn(isbn):
+    book = get_book_by_isbn_from_db(isbn)  
+    if not book:
+        return jsonify({"err": "Book not found"}), 404
+    return jsonify(book), 200

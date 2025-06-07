@@ -3,11 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./AdminPage.module.css";
 
 const AdminPanel = () => {
-  const [books, setBooks] = useState([]);
   const [users, setUsers] = useState([]);
-  const [tags, setTags] = useState([]);
-  const [comments, setComments] = useState([]);
-  const [newTag, setNewTag] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,47 +21,24 @@ const AdminPanel = () => {
     fetchData();
   }, []);
 
-  const fetchSafeJson = async (res) => {
-    const text = await res.text();
-    return text ? JSON.parse(text) : [];
-  };
-
   const fetchData = async () => {
     try {
-      const [booksRes, usersRes, tagsRes, commentsRes] = await Promise.all([
-        fetch("/api/books"),
-        fetch("/api/auth/users"),
-        fetch("/api/tags"),
-        fetch("/api/comments"),
-      ]);
-      setBooks(await fetchSafeJson(booksRes));
-      setUsers(await fetchSafeJson(usersRes));
-      setTags(await fetchSafeJson(tagsRes));
-      setComments(await fetchSafeJson(commentsRes));
+      const res = await fetch("/api/auth/users", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error(`Fetch failed: ${res.status} ${errorText}`);
+      }
+
+      const users = await res.json();
+      setUsers(users);
     } catch (err) {
-      console.error("Error fetching admin data:", err);
+      console.error("Error fetching users:", err);
     }
-  };
-
-  const deleteBook = async (id) => {
-    await fetch(`/api/books/${id}`, { method: "DELETE" });
-    setBooks((prev) => prev.filter((b) => b.id !== id));
-  };
-
-  const deleteComment = async (id) => {
-    await fetch(`/api/books/comments/${id}`, { method: "DELETE" });
-    setComments((prev) => prev.filter((c) => c.id !== id));
-  };
-
-  const addTag = async () => {
-    if (!newTag.trim()) return;
-    await fetch("/api/tags", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: newTag }),
-    });
-    setNewTag("");
-    fetchData();
   };
 
   const promoteDemoteUser = async (id, role) => {
@@ -85,43 +58,10 @@ const AdminPanel = () => {
       <h2>Admin Panel</h2>
 
       <section className={styles.section}>
-        <h3>Manage Book Reviews</h3>
-        <button onClick={() => navigate("/book-search")}>Add New Book</button>
-        <ul>
-          {books.map((book) => (
-            <li key={book.id}>
-              {book.title} —{" "}
-              <button onClick={() => deleteBook(book.id)}>Delete</button>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className={styles.section}>
-        <h3>Moderate Comments</h3>
-        <ul>
-          {comments.map((c) => (
-            <li key={c.id}>
-              {c.content} (Book #{c.book_id}){" "}
-              <button onClick={() => deleteComment(c.id)}>Delete</button>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className={styles.section}>
-        <h3>Manage Tags</h3>
-        <input
-          value={newTag}
-          onChange={(e) => setNewTag(e.target.value)}
-          placeholder="New Tag"
-        />
-        <button onClick={addTag}>Add Tag</button>
-        <ul>
-          {tags.map((t) => (
-            <li key={t.id}>{t.name}</li>
-          ))}
-        </ul>
+        <h3>Book Review Management</h3>
+        <button onClick={() => navigate("/book-editor")}>
+          Go to Book Review Editor
+        </button>
       </section>
 
       <section className={styles.section}>
