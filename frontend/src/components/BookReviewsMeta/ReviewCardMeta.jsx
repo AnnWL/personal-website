@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styles from "./BookReviewsMeta.module.css";
 
 const formatText = (text) => {
   if (!text) return "";
@@ -16,26 +17,30 @@ const ReviewCardMeta = ({ record }) => {
   };
 
   return (
-    <div className="review-card-meta">
-      {cover_image_url && (
-        <img
-          src={cover_image_url}
-          alt={`Cover of ${title}`}
-          className="cover-image"
-        />
-      )}
-      <div className="meta-details">
-        <h2>{title}</h2>
-        <p className="author">by {author}</p>
-        {rating && <p className="rating">{"⭐".repeat(rating)}</p>}
-        <p className="date">{new Date(created_at).toLocaleDateString()}</p>
-        <p
-          className="review-text"
-          dangerouslySetInnerHTML={{
-            __html: formatText(getStub(review)),
-          }}
-        />
-        {review?.length > 150 && <Link to={`/reviews/${id}`}>Read more</Link>}
+    <div className={styles.reviewCard}>
+      <div className={styles.reviewCardMeta}>
+        {cover_image_url && (
+          <img
+            src={cover_image_url}
+            alt={`Cover of ${title}`}
+            className={styles.coverImage}
+          />
+        )}
+        <div className={styles.metaDetails}>
+          <h2>{title}</h2>
+          <p className={styles.author}>by {author}</p>
+          {rating && <p className={styles.rating}>{"⭐".repeat(rating)}</p>}
+          <p className={styles.date}>
+            {new Date(created_at).toLocaleDateString()}
+          </p>
+          <p
+            className={styles.reviewText}
+            dangerouslySetInnerHTML={{ __html: formatText(getStub(review)) }}
+          />
+          {review?.length > 150 && (
+            <Link to={`/book-reviews/${id}`}>Read more</Link>
+          )}
+        </div>
       </div>
     </div>
   );

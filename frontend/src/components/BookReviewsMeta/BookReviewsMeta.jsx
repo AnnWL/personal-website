@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReviewCardMeta from "./ReviewCardMeta";
-import "./BookReviewsMeta.css";
+import styles from "./BookReviewsMeta.module.css";
 
 const BookReviewsMeta = () => {
   const [reviews, setReviews] = useState([]);
@@ -27,11 +27,11 @@ const BookReviewsMeta = () => {
   }, []);
 
   return (
-    <div className="reviews-container">
+    <div className={styles.reviewContainer}>
       {loading ? (
         <p>Loading reviews...</p>
       ) : (
-        <div className="review-grid">
+        <div className={styles.reviewGrid}>
           {reviews.length > 0 ? (
             reviews.map((record) => (
               <ReviewCardMeta key={record.id} record={record} />
