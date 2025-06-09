@@ -1,11 +1,12 @@
+/* Wrapper */
 .navbar {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0.6);
   padding: 1.25rem 2rem;
-  font-family: var(--font-base);
+  background-color: rgba(0, 0, 0, 0.6);
   border-bottom: 1px solid #444;
+  font-family: var(--font-base);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -17,6 +18,7 @@
   backdrop-filter: blur(6px);
 }
 
+/* Logo */
 .logo {
   font-weight: 800;
   font-size: 1.25rem;
@@ -24,19 +26,20 @@
   letter-spacing: 0.5px;
 }
 
+/* Nav List */
 .navbarList {
   display: grid;
   grid-auto-flow: column;
   justify-content: end;
   align-items: center;
+  gap: 1.5rem;
   margin: 0;
   padding: 0;
   list-style: none;
-  gap: 1.5rem;
 }
 
-.navLink,
-.logoutButton {
+/* Link Styles */
+.navLink {
   text-decoration: none;
   color: #ffffff;
   font-weight: 500;
@@ -49,25 +52,46 @@
   transition: color 0.2s ease;
 }
 
-.navLink:hover,
-.logoutButton:hover {
+.navLink:hover {
   color: #ffcccb;
 }
 
-.active {
+.activeNavLink {
   color: #cc00cc;
   font-weight: 600;
   text-decoration: underline;
 }
 
+/* Auth Buttons */
+.authButton {
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Logout */
+.logoutButton {
+  background: none;
+  border: 1px solid var(--accent-pink);
+  color: var(--accent-pink);
+  padding: 0.4rem 0.8rem;
+}
+
+.logoutButton:hover {
+  background-color: var(--accent-pink);
+  color: var(--bg-black);
+}
+
+/* Login */
 .loginButton {
   padding: 0.5rem 1rem;
   background-color: #ffffff;
   color: black;
   font-weight: 600;
   border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  position: relative;
 }
 
 .loginButton:hover {
@@ -75,6 +99,7 @@
   color: #fff;
 }
 
+/* Tooltip */
 .loginButton::after {
   content: "Login to personalise your experience: comment & bookmark your fav books";
   position: absolute;
@@ -95,20 +120,4 @@
 
 .loginButton:hover::after {
   opacity: 1;
-}
-
-.logoutButton {
-  background: none;
-  border: 1px solid var(--accent-pink);
-  color: var(--accent-pink);
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.logoutButton:hover {
-  background-color: var(--accent-pink);
-  color: var(--bg-black);
 }

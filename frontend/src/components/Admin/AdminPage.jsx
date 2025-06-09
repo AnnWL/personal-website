@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./AdminPage.module.css";
+import UserList from "./UserList";
 
 const AdminPanel = () => {
   const [users, setUsers] = useState([]);
@@ -66,22 +67,7 @@ const AdminPanel = () => {
 
       <section className={styles.section}>
         <h3>Promote/Demote Users</h3>
-        <ul>
-          {users.map((u) => (
-            <li key={u.id}>
-              {u.username} ({u.role}){" "}
-              {u.role === "registered" ? (
-                <button onClick={() => promoteDemoteUser(u.id, "owner")}>
-                  Promote
-                </button>
-              ) : (
-                <button onClick={() => promoteDemoteUser(u.id, "registered")}>
-                  Demote
-                </button>
-              )}
-            </li>
-          ))}
-        </ul>
+        <UserList users={users} promoteDemoteUser={promoteDemoteUser} />
       </section>
     </div>
   );

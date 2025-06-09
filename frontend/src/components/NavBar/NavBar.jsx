@@ -1,104 +1,35 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
 import styles from "./NavBar.module.css";
+import useUserRole from "./useUserRole";
+import NavItem from "./NavItem";
+import AuthButton from "./AuthButton";
 
 const NavBar = () => {
-  const [userRole, setUserRole] = useState(null);
-  const location = useLocation();
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) return;
-
-    try {
-      const payload = JSON.parse(atob(token.split(".")[1]));
-      const role = payload.payload?.role;
-      setUserRole(role);
-    } catch (err) {
-      console.error("Invalid token:", err);
-      setUserRole(null);
-    }
-  }, [location.pathname]);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/login";
-  };
+  const userRole = useUserRole();
 
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>Ann Wei Ling</div>
       <ul className={styles.navbarList}>
         <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? styles.activeNavLink : styles.navLink
-            }
-          >
-            Home
-          </NavLink>
+          <NavItem to="/" label="Home" />
         </li>
         <li>
-          <NavLink
-            to="/about-me"
-            className={({ isActive }) =>
-              isActive ? styles.activeNavLink : styles.navLink
-            }
-          >
-            About Me
-          </NavLink>
+          <NavItem to="/about-me" label="About Me" />
         </li>
         <li>
-          <NavLink
-            to="/book-reviews"
-            className={({ isActive }) =>
-              isActive ? styles.activeNavLink : styles.navLink
-            }
-          >
-            Book Reviews
-          </NavLink>
+          <NavItem to="/book-reviews" label="Book Reviews" />
         </li>
         <li>
-          <NavLink
-            to="/work-journey"
-            className={({ isActive }) =>
-              isActive ? styles.activeNavLink : styles.navLink
-            }
-          >
-            Work Journey
-          </NavLink>
+          <NavItem to="/work-journey" label="Work Journey" />
         </li>
-
         {userRole === "owner" && (
           <li>
-            <NavLink
-              to="/admin"
-              className={({ isActive }) =>
-                isActive ? styles.activeNavLink : styles.navLink
-              }
-            >
-              Admin Panel
-            </NavLink>
+            <NavItem to="/admin" label="Admin Panel" />
           </li>
         )}
-
-        {userRole ? (
-          <li>
-            <button onClick={handleLogout} className={styles.logoutButton}>
-              Logout
-            </button>
-          </li>
-        ) : location.pathname === "/book-reviews" ? (
-          <li>
-            <button
-              onClick={() => (window.location.href = "/login")}
-              className={styles.logoutButton}
-            >
-              Login
-            </button>
-          </li>
-        ) : null}
+        <li>
+          <AuthButton userRole={userRole} />
+        </li>
       </ul>
     </nav>
   );
