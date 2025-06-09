@@ -96,3 +96,19 @@
 .loginButton:hover::after {
   opacity: 1;
 }
+
+.logoutButton {
+  background: none;
+  border: 1px solid var(--accent-pink);
+  color: var(--accent-pink);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.logoutButton:hover {
+  background-color: var(--accent-pink);
+  color: var(--bg-black);
+}

@@ -1,92 +1,132 @@
 # Personal Website — Ann Wei Ling
 
-![screenshot of the Personal Website](./src/assets/Screenshot.png)
+![screenshot of the Personal Website](./frontend/src/assets/Screenshot.png)
 
 ## App Name and Description
 
-This is a React-based portfolio site where I share reflections, book reviews, and my career journey. I wanted a lightweight platform where I could document my learning journey, favorite reads, and thoughts — while also practicing front-end skills such as React, responsive design, and simple API integrations.
+This is a full-stack React + Flask portfolio site where I share reflections, book reviews, and my career journey. It serves as a personal platform to document learning, favorite reads, and experiences — while building out end-to-end functionality including user authentication, CRUD features, and styling.
 
 ## Features
 
-- **Homepage**: Quick overview of different sections.
-- **About Me**: Personal background and sabbatical journey.
-- **Book Reviews**: Reflections on books I've read, in a casual note-to-self style.
-- **Work Journey**: A personal career timeline across different fields.
-- **Personal Reflections**: Thoughts and learning moments captured along the way.
+- **Homepage**: Overview of site sections
+- **About Me**: Background and sabbatical reflections
+- **Book Reviews**:
+  - Submit/edit/delete your reviews with rating
+  - View full review details with comments and bookmarks
+  - Admin interface to manage users and book reviews
+- **Work Journey**: Career history and pivots
+- **Personal Reflections**: Notes and thoughts (planned)
 
 ## Tech Stack
 
-- **Frontend**:
+### Frontend:
 
-  - React (Vite setup)
-  - React Router
-  - Framer Motion (for simple page animations)
+- React (with Vite)
+- React Router
+- Custom CSS Modules
+- Framer Motion (animations)
 
-- **Styling**:
+### Backend:
 
-  - Custom CSS
-  - Variables set in `:root` for colors, fonts, and layout consistency
+- Python Flask
+- PostgreSQL
+- JWT Auth + Role-based permissions
 
-- **Other tools**:
-  - Airtable API (for managing book review content)
-  - GoogleBooks API for data
+## Project Structure
 
-## Project Hierarchy
+```
+personal-website/
+│
+├── backend/                         # Flask application
+│   ├── app/
+│   │   ├── routes/                  # All route blueprints
+│   │   │   ├── auth_routes.py
+│   │   │   ├── book_routes.py
+│   │   │   ├── bookmark_routes.py
+│   │   │   ├── comment_routes.py
+│   │   │   ├── tag_routes.py
+│   │   ├── crud/                    # All DB logic (SQL) per feature
+│   │   ├── db/                      # Connection setup
+│   │   ├── middleware/              # Token middleware
+│   │   └── __init__.py
+│   ├── .env                         # Environment config
+│   └── main.py                      # App entrypoint (flask run)
 
-![Project Structure](./src/assets/project_structure.png)
+├── frontend/                        # React application (Vite)
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Auth/               # Login, Register
+│   │   │   ├── BookEditor/         # Create/edit reviews
+│   │   │   ├── BookReviewsMeta/    # All preview cards
+│   │   │   ├── FullBookReview/     # Full view incl. comments/bookmark
+│   │   │   ├── Admin/              # Admin dashboard
+│   │   │   ├── NavBar/             # Navigation bar
+│   │   │   ├── AboutMe/            # AboutMe Page
+│   │   │   ├── WorkJourney/        # Chronicles of my work history
+│   │   │   └── HomePage/           # Homepage
+│   │   ├── assets/                 # Images, screenshots, icons
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   └── index.html
+├── package.json                     # Frontend dependencies
+└── README.md
+```
 
 ## Getting Started
 
-To run this project locally:
+### Backend
 
-1. **Clone the repository**:
+1. Navigate to the backend directory and set up a virtual environment:
 
    ```bash
-   git clone https://github.com/AnnWL/personal-website.git
-   cd personal-website
+   python -m venv venv
+   source venv/bin/activate  # or venv\Scripts\activate on Windows
+   pip install -r requirements.txt
    ```
 
-2. **Install dependencies**:
+2. Add a `.env` file for your Flask app with keys like:
+
+   ```env
+   DB_NAME=your_db_name
+   DB_USER=your_db_user_account
+   DB_PASSWORD=your_db_password
+   DB_HOST=your_db_host
+   DB_PORT=your_db_port
+   JWT_SECRET=your_jwt_secret
+   ```
+
+3. Start the Flask server:
+   ```bash
+   $env:FLASK_APP = "main.py"
+   flask run
+   ```
+
+### Frontend
+
+1. From the frontend root:
 
    ```bash
    npm install
-   ```
-
-3. **Run the development server**:
-
-   ```bash
    npm run dev
    ```
 
-The app will start on `http://localhost:5173/` (or the next available port).
+2. The app will run at `http://localhost:5173/`
 
-## Environment Variables
+## Highlights
 
-You will need an `.env` file with the following variables if you are using Airtable for Book Reviews:
+- **JWT auth** with role-based access (`owner`, `registered`, public)
+- **Admin panel and Book Editor**: promote/demote users, edit/delete reviews
+- **Comment system**: create/edit/delete with user roles
+- **Bookmark** feature for logged-in users
 
-```plaintext
-VITE_AIRTABLE_BASE_ID=your_airtable_base_id
-VITE_AIRTABLE_TABLE_NAME=your_table_name
-VITE_AIRTABLE_TOKEN=your_airtable_api_key
-```
+## Roadmap / Ideas
 
-These are used to fetch book review data dynamically.
-
-## Attributions
-
-This section to be updated.
-
-## Future Enhancements (Ideas)
-
-- Add a mobile-responsive navigation menu (e.g., hamburger menu on small screens)
-
-- Add more projects and details under Work Journey
-
-- Build a small blog or journal section for new reflections
-
-- Create day and night modes
+- Responsive navigation (hamburger for mobile)
+- Filter reviews by tag or rating
+- Personal Reflections section buildout
+- Theme toggle (light/dark)
+- Pagination and sorting for reviews
 
 ## License
 
-This project is licensed for personal use and learning.
-Feel free to fork for your own practice or portfolio building — but please credit if you adapt major portions.
+This project is open for personal learning and portfolio development. Please credit if reusing major components.

@@ -20,6 +20,11 @@ const NavBar = () => {
     }
   }, [location.pathname]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>Ann Wei Ling</div>
@@ -77,6 +82,23 @@ const NavBar = () => {
             </NavLink>
           </li>
         )}
+
+        {userRole ? (
+          <li>
+            <button onClick={handleLogout} className={styles.logoutButton}>
+              Logout
+            </button>
+          </li>
+        ) : location.pathname === "/book-reviews" ? (
+          <li>
+            <button
+              onClick={() => (window.location.href = "/login")}
+              className={styles.logoutButton}
+            >
+              Login
+            </button>
+          </li>
+        ) : null}
       </ul>
     </nav>
   );
